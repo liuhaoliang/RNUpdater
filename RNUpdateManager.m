@@ -9,13 +9,14 @@
 #import "RNUpdateManager.h"
 #import "SSZipArchive.h"
 #import "AFURLSessionManager.h"
+#import "CommonUtils.h"
 
 @interface RNUpdateManager()
 @property (nonatomic,copy) NSString* updateDir;
 @property (nonatomic,copy) NSString* tempZipPath;
 @property (nonatomic,copy) NSString* tempUnzipPath;
-
-@property (nonatomic,strong) NSDictionary* updateInfo;
+@property (nonatomic,copy) NSDictionary* updateResult;
+@property (nonatomic,strong) NSDictionary* versionInfo;
 @end
 
 @implementation RNUpdateManager
@@ -27,6 +28,15 @@
     sharedInstance = [[RNUpdateManager alloc] init];
   });
   return sharedInstance;
+}
+
++ (BOOL)isValidJsBundleExist{
+  NSString* target = self.sharedManager.versionInfo[@"target"];
+  return [target isEqualToString:CommonUtils.appVersion];
+}
+
++ (NSString*)updatedJsBundlePath{
+  return [self.sharedManager.updateDir stringByAppendingPathComponent:@"main.jsbundle"];
 }
 
 - (NSString*)updateDir{
@@ -75,29 +85,42 @@
   return _tempUnzipPath;
 }
 
-- (NSDictionary*)updateInfo{
-  if (!_updateInfo) {
-    NSString *plistPath = [self.updateDir stringByAppendingPathComponent:@"update.plist"];
+- (NSString*)versionInfoPath {
+  return [self.updateDir stringByAppendingPathComponent:@"version.plist"];
+}
+
+- (NSDictionary*)versionInfo{
+  if (!_versionInfo) {
+    NSString *plistPath = self.versionInfoPath;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if (![fileManager fileExistsAtPath:plistPath]) {
       [fileManager createFileAtPath:plistPath contents:nil attributes:nil];
     }
-    _updateInfo = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+    _versionInfo = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
   }
-  return _updateInfo;
+  return _versionInfo;
 }
 
-- (void)check {
-  NSString* serverVersion = @"3";
-  NSString* localVersion = self.updateInfo[@"localVersion"];
-  if (localVersion && [localVersion integerValue]>=[serverVersion integerValue]) {
-    return;
-  }
-  [self download];
++ (void)check {
+  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    RNUpdateManager* this = RNUpdateManager.sharedManager;
+    NSDictionary* result = CommonUtils.testData;
+    this.updateResult = result;
+    BOOL isEqualNativeVersion = [result[@"target"] isEqualToString:CommonUtils.appVersion];
+    if (!isEqualNativeVersion) {
+      return ;
+    }
+    NSInteger serverVersion = [[result[@"version"] description] integerValue];
+    NSInteger localVersion = this.versionInfo[@"version"]?[[this.versionInfo[@"version"] description] integerValue]:0;
+    if (serverVersion<=localVersion) {
+      return;
+    }
+    NSString* updateUrl = result[@"updateUrl"];
+    [this downloadWithUrl:updateUrl];
+  });
 }
 
-- (void)download {
-  NSString* url = @"http://lc-xHhJT28m.cn-n1.lcfile.com/51f9ab4bbeb55abd1f3e.zip";
+- (void)downloadWithUrl:(NSString*)url {
   //根据url下载相关文件
   NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
   AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
@@ -131,9 +154,7 @@
       [[NSFileManager defaultManager] moveItemAtPath:self.tempUnzipPath toPath:self.updateDir error:&error];
       if (!error) {
         //创建版本信息
-//        NSString* filePath  = [self getVersionPlistPath];
-//        [dictionary writeToFile:filePath atomically:YES];
-        ;
+        [self.updateResult writeToFile:self.versionInfoPath atomically:YES];
       }
     }
   }

@@ -10,6 +10,7 @@
 
 @interface RNUpdateManager : NSObject
 + (RNUpdateManager *)sharedManager;
-- (void)check;
-- (void)download;
++ (BOOL)isValidJsBundleExist;
++ (NSString*)updatedJsBundlePath;
++ (void)check;
 @end

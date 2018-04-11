@@ -63,6 +63,8 @@
 		FEBC540E207DF47500B56806 /* aestab.c in Sources */ = {isa = PBXBuildFile; fileRef = FEBC53F2207DF47500B56806 /* aestab.c */; };
 		FEBC540F207DF47500B56806 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBC53F7207DF47500B56806 /* SSZipArchive.m */; };
 		FEBC5410207DF47500B56806 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FEBC53F8207DF47500B56806 /* Info.plist */; };
+		FEBC546B207E13B700B56806 /* test.geojson in Resources */ = {isa = PBXBuildFile; fileRef = FEBC5445207E13B600B56806 /* test.geojson */; };
+		FEBC546E207E164200B56806 /* CommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBC546D207E164200B56806 /* CommonUtils.m */; };
 		FEC9CA422074C6F40091D4A3 /* RNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC9CA412074C6F40091D4A3 /* RNViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -423,6 +425,9 @@
 		FEBC53F6207DF47500B56806 /* SSZipCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipCommon.h; sourceTree = "<group>"; };
 		FEBC53F7207DF47500B56806 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
 		FEBC53F8207DF47500B56806 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FEBC5445207E13B600B56806 /* test.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.geojson; sourceTree = "<group>"; };
+		FEBC546C207E164200B56806 /* CommonUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonUtils.h; sourceTree = "<group>"; };
+		FEBC546D207E164200B56806 /* CommonUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonUtils.m; sourceTree = "<group>"; };
 		FEC9CA402074C6F30091D4A3 /* RNViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RNViewController.h; path = pos/RNViewController.h; sourceTree = "<group>"; };
 		FEC9CA412074C6F40091D4A3 /* RNViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNViewController.m; path = pos/RNViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -571,6 +576,9 @@
 				FEC9CA412074C6F40091D4A3 /* RNViewController.m */,
 				FEBC53BC207DDCAB00B56806 /* RNUpdateManager.h */,
 				FEBC53BD207DDCAB00B56806 /* RNUpdateManager.m */,
+				FEBC546C207E164200B56806 /* CommonUtils.h */,
+				FEBC546D207E164200B56806 /* CommonUtils.m */,
+				FEBC5445207E13B600B56806 /* test.geojson */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				FEBC53C0207DF47500B56806 /* Vendor */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
@@ -1234,6 +1242,7 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				FEBC5410207DF47500B56806 /* Info.plist in Resources */,
+				FEBC546B207E13B700B56806 /* test.geojson in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1320,6 +1329,7 @@
 				FEBC53F9207DF47500B56806 /* AFURLResponseSerialization.m in Sources */,
 				FEBC5404207DF47500B56806 /* ioapi_mem.c in Sources */,
 				FEBC5401207DF47500B56806 /* zip.c in Sources */,
+				FEBC546E207E164200B56806 /* CommonUtils.m in Sources */,
 				FEBC5406207DF47500B56806 /* aeskey.c in Sources */,
 				FEBC53FF207DF47500B56806 /* crypt.c in Sources */,
 				FEBC5408207DF47500B56806 /* aescrypt.c in Sources */,

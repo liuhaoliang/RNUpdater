@@ -38,18 +38,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  [[RNUpdateManager sharedManager] download];
-
   NSURL *jsCodeLocation;
 #ifdef DEBUG
   //    jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.bundle?platform=ios"];
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
 #else
-//  if ([[NSFileManager defaultManager] fileExistsAtPath:iOSBundlePath]) {
-//      jsCodeLocation = [NSURL URLWithString:[iOSBundlePath stringByAppendingString:@"/index.jsbundle"]];
-//  }else{
-//      jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
-//  }
+  if ([RNUpdateManager isValidJsBundleExist]) {
+      jsCodeLocation = [NSURL URLWithString:RNUpdateManager.updatedJsBundlePath];
+  }else{
+      jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+  }
 #endif
   
   NSLog(@"jsCodeLocation%@",jsCodeLocation);
@@ -63,6 +61,8 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  
+  [RNUpdateManager check];
   return YES;
 }
 
