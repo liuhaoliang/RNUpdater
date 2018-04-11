@@ -10,6 +10,5 @@
 
 @interface CommonUtils : NSObject
 + (NSString*)appVersion;
-
 + (NSDictionary*)testData;
 @end

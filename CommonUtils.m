@@ -12,11 +12,11 @@
 
 + (NSString*)appVersion {
   NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-  NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
-  return app_Version;
+  NSString *app_version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+  return app_version;
 }
 
-- (NSDictionary*)testData {
++ (NSDictionary*)testData {
   NSString* path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"geojson"];
   NSData *jsonData = [NSData dataWithContentsOfFile:path];
   NSError *err;
