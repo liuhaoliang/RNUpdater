@@ -48,10 +48,9 @@
   }else{
       jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
   }
-  
 #endif
-  
-  NSLog(@"jsCodeLocation%@",jsCodeLocation);
+
+  NSLog(@"jsCodeLocation%@",[jsCodeLocation description]);
   
   RCTBridge* bridge = [[RCTBridge alloc] initWithBundleURL:jsCodeLocation
                                             moduleProvider:nil

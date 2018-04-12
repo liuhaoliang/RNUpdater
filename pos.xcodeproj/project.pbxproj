@@ -39,6 +39,7 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		FE74D253207F02520053333A /* CommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FE74D24D207F02520053333A /* CommonUtils.m */; };
+		FE74D2A4207F41690053333A /* FileHash.m in Sources */ = {isa = PBXBuildFile; fileRef = FE74D2A3207F41690053333A /* FileHash.m */; };
 		FEBC53BE207DDCAB00B56806 /* RNUpdateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBC53BD207DDCAB00B56806 /* RNUpdateManager.m */; };
 		FEBC53F9207DF47500B56806 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBC53C6207DF47500B56806 /* AFURLResponseSerialization.m */; };
 		FEBC53FA207DF47500B56806 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBC53C7207DF47500B56806 /* AFHTTPSessionManager.m */; };
@@ -375,6 +376,8 @@
 		FE74D24D207F02520053333A /* CommonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUtils.m; sourceTree = "<group>"; };
 		FE74D251207F02520053333A /* Notification_Key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification_Key.h; sourceTree = "<group>"; };
 		FE74D280207F097E0053333A /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		FE74D2A2207F41690053333A /* FileHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHash.h; sourceTree = "<group>"; };
+		FE74D2A3207F41690053333A /* FileHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHash.m; sourceTree = "<group>"; };
 		FEBC53BC207DDCAB00B56806 /* RNUpdateManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNUpdateManager.h; sourceTree = "<group>"; };
 		FEBC53BD207DDCAB00B56806 /* RNUpdateManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNUpdateManager.m; sourceTree = "<group>"; };
 		FEBC53C2207DF47500B56806 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
@@ -721,9 +724,19 @@
 			path = pos/Common;
 			sourceTree = "<group>";
 		};
+		FE74D2A1207F41690053333A /* FileHash */ = {
+			isa = PBXGroup;
+			children = (
+				FE74D2A2207F41690053333A /* FileHash.h */,
+				FE74D2A3207F41690053333A /* FileHash.m */,
+			);
+			path = FileHash;
+			sourceTree = "<group>";
+		};
 		FEBC53C0207DF47500B56806 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				FE74D2A1207F41690053333A /* FileHash */,
 				FEBC53C1207DF47500B56806 /* AFNetworking */,
 				FEBC53CF207DF47500B56806 /* SSZipArchive */,
 			);
@@ -1332,6 +1345,7 @@
 				FEBC5403207DF47500B56806 /* ioapi_buf.c in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				FEBC53FD207DF47500B56806 /* AFNetworkReachabilityManager.m in Sources */,
+				FE74D2A4207F41690053333A /* FileHash.m in Sources */,
 				FEBC53BE207DDCAB00B56806 /* RNUpdateManager.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				FEBC53FB207DF47500B56806 /* AFURLSessionManager.m in Sources */,

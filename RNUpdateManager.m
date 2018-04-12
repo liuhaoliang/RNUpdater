@@ -10,6 +10,7 @@
 #import "SSZipArchive.h"
 #import "AFURLSessionManager.h"
 #import "CommonUtils.h"
+#import "FileHash.h"
 
 @interface RNUpdateManager()
 @property (nonatomic,copy) NSString* updateDir;
@@ -38,7 +39,7 @@
 }
 
 + (NSString*)updatedJsBundlePath{
-  return [self.sharedManager.updateDir stringByAppendingPathComponent:@"main.bundle"];
+  return [self.sharedManager.updateDir stringByAppendingPathComponent:@"main.jsbundle"];
 }
 
 - (NSString*)updateDir{
@@ -106,20 +107,20 @@
 + (void)checkWithBridge:(RCTBridge*)bridge {
   RNUpdateManager.sharedManager.bridge = bridge;
   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-    RNUpdateManager* this = RNUpdateManager.sharedManager;
+    RNUpdateManager* manager = RNUpdateManager.sharedManager;
     NSDictionary* result = CommonUtils.testData;
-    this.updateResult = result;
+    manager.updateResult = result;
     BOOL isEqualNativeVersion = [result[@"target"] isEqualToString:CommonUtils.appVersion];
     if (!isEqualNativeVersion) {
       return ;
     }
     NSInteger serverVersion = [[result[@"version"] description] integerValue];
-    NSInteger localVersion = this.versionInfo[@"version"]?[[this.versionInfo[@"version"] description] integerValue]:0;
+    NSInteger localVersion = manager.versionInfo[@"version"]?[[manager.versionInfo[@"version"] description] integerValue]:0;
     if (serverVersion<=localVersion) {
       return;
     }
     NSString* updateUrl = result[@"updateUrl"];
-    [this downloadWithUrl:updateUrl];
+    [manager downloadWithUrl:updateUrl];
   });
 }
 
@@ -145,6 +146,13 @@
 }
 
 - (void)settleFileWithPath:(NSString*)path {
+  NSString* hashCode = [FileHash md5HashOfFileAtPath:path];
+  if (![hashCode isEqualToString:self.updateResult[@"hash"]]) {
+    //删除临时下载文件夹
+    [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+    return;
+  }
+  
   BOOL success = [SSZipArchive unzipFileAtPath:path toDestination:self.tempUnzipPath];
   //删除临时下载文件夹
   [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
