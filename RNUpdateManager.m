@@ -17,6 +17,8 @@
 @property (nonatomic,copy) NSString* tempUnzipPath;
 @property (nonatomic,copy) NSDictionary* updateResult;
 @property (nonatomic,strong) NSDictionary* versionInfo;
+@property (nonatomic,strong) RCTBridge* bridge;
+
 @end
 
 @implementation RNUpdateManager
@@ -36,7 +38,7 @@
 }
 
 + (NSString*)updatedJsBundlePath{
-  return [self.sharedManager.updateDir stringByAppendingPathComponent:@"main.jsbundle"];
+  return [self.sharedManager.updateDir stringByAppendingPathComponent:@"main.bundle"];
 }
 
 - (NSString*)updateDir{
@@ -101,7 +103,8 @@
   return _versionInfo;
 }
 
-+ (void)check {
++ (void)checkWithBridge:(RCTBridge*)bridge {
+  RNUpdateManager.sharedManager.bridge = bridge;
   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     RNUpdateManager* this = RNUpdateManager.sharedManager;
     NSDictionary* result = CommonUtils.testData;
@@ -155,6 +158,11 @@
       if (!error) {
         //创建版本信息
         [self.updateResult writeToFile:self.versionInfoPath atomically:YES];
+        if (self.bridge) {
+          NSURL* bundleURL = [NSURL URLWithString:self.class.updatedJsBundlePath];
+          [self.bridge setValue:bundleURL forKey:@"bundleURL"];
+          [self.bridge reload];
+        }
       }
     }
   }

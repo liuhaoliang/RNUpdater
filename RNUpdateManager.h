@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <React/RCTRootView.h>
 
 @interface RNUpdateManager : NSObject
 + (RNUpdateManager *)sharedManager;
 + (BOOL)isValidJsBundleExist;
 + (NSString*)updatedJsBundlePath;
-+ (void)check;
++ (void)checkWithBridge:(RCTBridge*)bridge;
 @end
