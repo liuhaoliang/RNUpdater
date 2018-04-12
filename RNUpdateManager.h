@@ -10,8 +10,23 @@
 #import <React/RCTRootView.h>
 
 @interface RNUpdateManager : NSObject
+
 + (RNUpdateManager *)sharedManager;
+
+/**
+ 判断是否存在下载过的有效的bundle文件
+ */
 + (BOOL)isValidJsBundleExist;
+
+/**
+ 本地下载的bundle文件路径
+ */
 + (NSString*)updatedJsBundlePath;
+
+/**
+ 检查更新文件
+ 
+ @param bridge RCTBridge对象
+ */
 + (void)checkWithBridge:(RCTBridge*)bridge;
 @end
