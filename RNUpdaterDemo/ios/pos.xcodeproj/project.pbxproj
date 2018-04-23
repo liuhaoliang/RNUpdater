@@ -38,8 +38,7 @@
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
-		FE21604A208D85D600B75115 /* FileHash.m in Sources */ = {isa = PBXBuildFile; fileRef = FE216048208D85D600B75115 /* FileHash.m */; };
-		FE21604B208D85D600B75115 /* RNUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = FE216049208D85D600B75115 /* RNUpdater.m */; };
+		FE2160C8208DA5DA00B75115 /* RNUpdater in Resources */ = {isa = PBXBuildFile; fileRef = FE2160C7208DA5DA00B75115 /* RNUpdater */; };
 		FEBC53F9207DF47500B56806 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBC53C6207DF47500B56806 /* AFURLResponseSerialization.m */; };
 		FEBC53FA207DF47500B56806 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBC53C7207DF47500B56806 /* AFHTTPSessionManager.m */; };
 		FEBC53FB207DF47500B56806 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBC53C9207DF47500B56806 /* AFURLSessionManager.m */; };
@@ -371,10 +370,7 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
-		FE216045208D85D600B75115 /* RNUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNUpdater.h; sourceTree = "<group>"; };
-		FE216047208D85D600B75115 /* FileHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHash.h; sourceTree = "<group>"; };
-		FE216048208D85D600B75115 /* FileHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHash.m; sourceTree = "<group>"; };
-		FE216049208D85D600B75115 /* RNUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNUpdater.m; sourceTree = "<group>"; };
+		FE2160C7208DA5DA00B75115 /* RNUpdater */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RNUpdater; path = ../../RNUpdater; sourceTree = "<group>"; };
 		FE74D280207F097E0053333A /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		FEBC53C2207DF47500B56806 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
 		FEBC53C3207DF47500B56806 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
@@ -577,7 +573,7 @@
 				FEC9CA412074C6F40091D4A3 /* RNViewController.m */,
 				FEBC5445207E13B600B56806 /* test.geojson */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
-				FE216044208D85D600B75115 /* RNUpdaterLib */,
+				FE2160C7208DA5DA00B75115 /* RNUpdater */,
 				FE74D24F207F02520053333A /* Common */,
 				FEBC53C0207DF47500B56806 /* Vendor */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
@@ -696,26 +692,6 @@
 				2D16E6721FA4F8DC00B85C8A /* libRCTBlob-tvOS.a */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		FE216044208D85D600B75115 /* RNUpdaterLib */ = {
-			isa = PBXGroup;
-			children = (
-				FE216045208D85D600B75115 /* RNUpdater.h */,
-				FE216049208D85D600B75115 /* RNUpdater.m */,
-				FE216046208D85D600B75115 /* FileHash */,
-			);
-			name = RNUpdaterLib;
-			path = ../../RNUpdaterLib;
-			sourceTree = "<group>";
-		};
-		FE216046208D85D600B75115 /* FileHash */ = {
-			isa = PBXGroup;
-			children = (
-				FE216047208D85D600B75115 /* FileHash.h */,
-				FE216048208D85D600B75115 /* FileHash.m */,
-			);
-			path = FileHash;
 			sourceTree = "<group>";
 		};
 		FE74D24F207F02520053333A /* Common */ = {
@@ -1268,6 +1244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				FE2160C8208DA5DA00B75115 /* RNUpdater in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				FEBC5410207DF47500B56806 /* Info.plist in Resources */,
 				FEBC546B207E13B700B56806 /* test.geojson in Resources */,
@@ -1350,13 +1327,11 @@
 				FEBC5400207DF47500B56806 /* unzip.c in Sources */,
 				FEBC53FE207DF47500B56806 /* AFSecurityPolicy.m in Sources */,
 				FEC9CA422074C6F40091D4A3 /* RNViewController.m in Sources */,
-				FE21604B208D85D600B75115 /* RNUpdater.m in Sources */,
 				FEBC540E207DF47500B56806 /* aestab.c in Sources */,
 				FEBC5409207DF47500B56806 /* fileenc.c in Sources */,
 				FEBC5407207DF47500B56806 /* hmac.c in Sources */,
 				FEBC53F9207DF47500B56806 /* AFURLResponseSerialization.m in Sources */,
 				FEBC5404207DF47500B56806 /* ioapi_mem.c in Sources */,
-				FE21604A208D85D600B75115 /* FileHash.m in Sources */,
 				FEBC5401207DF47500B56806 /* zip.c in Sources */,
 				FEBC5406207DF47500B56806 /* aeskey.c in Sources */,
 				FEBC53FF207DF47500B56806 /* crypt.c in Sources */,
