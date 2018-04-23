@@ -38,7 +38,8 @@
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
-		FE2160C8208DA5DA00B75115 /* RNUpdater in Resources */ = {isa = PBXBuildFile; fileRef = FE2160C7208DA5DA00B75115 /* RNUpdater */; };
+		FE2160D0208DACC300B75115 /* RNUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2160CF208DACC300B75115 /* RNUpdater.m */; };
+		FE2160D4208DAD0100B75115 /* HLFileHash.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2160D3208DAD0000B75115 /* HLFileHash.m */; };
 		FEBC53F9207DF47500B56806 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBC53C6207DF47500B56806 /* AFURLResponseSerialization.m */; };
 		FEBC53FA207DF47500B56806 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBC53C7207DF47500B56806 /* AFHTTPSessionManager.m */; };
 		FEBC53FB207DF47500B56806 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBC53C9207DF47500B56806 /* AFURLSessionManager.m */; };
@@ -370,7 +371,11 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
-		FE2160C7208DA5DA00B75115 /* RNUpdater */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RNUpdater; path = ../../RNUpdater; sourceTree = "<group>"; };
+		FE2160CB208DAC9900B75115 /* RNUpdater */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RNUpdater; path = ../../RNUpdater; sourceTree = "<group>"; };
+		FE2160CE208DACC300B75115 /* RNUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNUpdater.h; sourceTree = "<group>"; };
+		FE2160CF208DACC300B75115 /* RNUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNUpdater.m; sourceTree = "<group>"; };
+		FE2160D2208DAD0000B75115 /* HLFileHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLFileHash.h; sourceTree = "<group>"; };
+		FE2160D3208DAD0000B75115 /* HLFileHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLFileHash.m; sourceTree = "<group>"; };
 		FE74D280207F097E0053333A /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		FEBC53C2207DF47500B56806 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
 		FEBC53C3207DF47500B56806 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
@@ -573,7 +578,7 @@
 				FEC9CA412074C6F40091D4A3 /* RNViewController.m */,
 				FEBC5445207E13B600B56806 /* test.geojson */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
-				FE2160C7208DA5DA00B75115 /* RNUpdater */,
+				FE2160CD208DACC300B75115 /* RNUpdater */,
 				FE74D24F207F02520053333A /* Common */,
 				FEBC53C0207DF47500B56806 /* Vendor */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
@@ -663,6 +668,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				FE2160CB208DAC9900B75115 /* RNUpdater */,
 				13B07FAE1A68108700A75B9A /* pos */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* posTests */,
@@ -694,6 +700,25 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		FE2160CD208DACC300B75115 /* RNUpdater */ = {
+			isa = PBXGroup;
+			children = (
+				FE2160CE208DACC300B75115 /* RNUpdater.h */,
+				FE2160CF208DACC300B75115 /* RNUpdater.m */,
+			);
+			name = RNUpdater;
+			path = ../../RNUpdater;
+			sourceTree = "<group>";
+		};
+		FE2160D1208DAD0000B75115 /* HLFileHash */ = {
+			isa = PBXGroup;
+			children = (
+				FE2160D2208DAD0000B75115 /* HLFileHash.h */,
+				FE2160D3208DAD0000B75115 /* HLFileHash.m */,
+			);
+			path = HLFileHash;
+			sourceTree = "<group>";
+		};
 		FE74D24F207F02520053333A /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -706,6 +731,7 @@
 		FEBC53C0207DF47500B56806 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				FE2160D1208DAD0000B75115 /* HLFileHash */,
 				FEBC53C1207DF47500B56806 /* AFNetworking */,
 				FEBC53CF207DF47500B56806 /* SSZipArchive */,
 			);
@@ -1244,7 +1270,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				FE2160C8208DA5DA00B75115 /* RNUpdater in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				FEBC5410207DF47500B56806 /* Info.plist in Resources */,
 				FEBC546B207E13B700B56806 /* test.geojson in Resources */,
@@ -1315,11 +1340,13 @@
 				FEBC5403207DF47500B56806 /* ioapi_buf.c in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				FEBC53FD207DF47500B56806 /* AFNetworkReachabilityManager.m in Sources */,
+				FE2160D4208DAD0100B75115 /* HLFileHash.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				FEBC53FB207DF47500B56806 /* AFURLSessionManager.m in Sources */,
 				FEBC540C207DF47500B56806 /* prng.c in Sources */,
 				FEBC540A207DF47500B56806 /* sha1.c in Sources */,
 				FEBC53FA207DF47500B56806 /* AFHTTPSessionManager.m in Sources */,
+				FE2160D0208DACC300B75115 /* RNUpdater.m in Sources */,
 				FEBC5402207DF47500B56806 /* ioapi.c in Sources */,
 				FEBC5405207DF47500B56806 /* minishared.c in Sources */,
 				FEBC540F207DF47500B56806 /* SSZipArchive.m in Sources */,

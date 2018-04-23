@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <React/RCTRootView.h>
 
 @interface RNUpdater : NSObject
 
@@ -28,5 +27,5 @@
  
  @param bridge RCTBridge对象
  */
-+ (void)checkWithBridge:(RCTBridge*)bridge;
++ (void)checkWithBridge:(id)bridge;
 @end

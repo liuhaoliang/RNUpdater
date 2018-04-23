@@ -9,7 +9,7 @@
 #import "RNUpdater.h"
 #import "SSZipArchive.h"
 #import "AFURLSessionManager.h"
-#import "FileHash.h"
+#import "HLFileHash.h"
 
 @interface RNUpdater()
 
@@ -46,7 +46,7 @@
 /**
  RCTBridge对象
  */
-@property (nonatomic,strong) RCTBridge* bridge;
+@property (nonatomic,strong) id bridge;
 
 @end
 
@@ -176,7 +176,7 @@
 
  @param bridge RCTBridge对象
  */
-+ (void)checkWithBridge:(RCTBridge*)bridge {
++ (void)checkWithBridge:(id)bridge {
   RNUpdater.sharedManager.bridge = bridge;
   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     RNUpdater* manager = RNUpdater.sharedManager;
@@ -229,7 +229,7 @@
  @param path 下载路径
  */
 - (void)settleFileWithPath:(NSString*)path {
-  NSString* hashCode = [FileHash md5HashOfFileAtPath:path];
+  NSString* hashCode = [HLFileHash md5HashOfFileAtPath:path];
   if (![hashCode isEqualToString:self.updateResult[@"hash"]]) {
     //删除临时下载文件夹
     [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
