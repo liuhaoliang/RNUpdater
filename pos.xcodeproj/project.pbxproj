@@ -38,9 +38,9 @@
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		FE215FCB208D7C7B00B75115 /* RNUpdateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE215FCA208D7C7B00B75115 /* RNUpdateManager.m */; };
 		FE74D253207F02520053333A /* CommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FE74D24D207F02520053333A /* CommonUtils.m */; };
 		FE74D2A4207F41690053333A /* FileHash.m in Sources */ = {isa = PBXBuildFile; fileRef = FE74D2A3207F41690053333A /* FileHash.m */; };
-		FEBC53BE207DDCAB00B56806 /* RNUpdateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBC53BD207DDCAB00B56806 /* RNUpdateManager.m */; };
 		FEBC53F9207DF47500B56806 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBC53C6207DF47500B56806 /* AFURLResponseSerialization.m */; };
 		FEBC53FA207DF47500B56806 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBC53C7207DF47500B56806 /* AFHTTPSessionManager.m */; };
 		FEBC53FB207DF47500B56806 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBC53C9207DF47500B56806 /* AFURLSessionManager.m */; };
@@ -372,14 +372,14 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
+		FE215FC9208D7C7B00B75115 /* RNUpdateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNUpdateManager.h; sourceTree = "<group>"; };
+		FE215FCA208D7C7B00B75115 /* RNUpdateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNUpdateManager.m; sourceTree = "<group>"; };
 		FE74D24B207F02520053333A /* CommonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtils.h; sourceTree = "<group>"; };
 		FE74D24D207F02520053333A /* CommonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUtils.m; sourceTree = "<group>"; };
 		FE74D251207F02520053333A /* Notification_Key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification_Key.h; sourceTree = "<group>"; };
 		FE74D280207F097E0053333A /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		FE74D2A2207F41690053333A /* FileHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHash.h; sourceTree = "<group>"; };
 		FE74D2A3207F41690053333A /* FileHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHash.m; sourceTree = "<group>"; };
-		FEBC53BC207DDCAB00B56806 /* RNUpdateManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNUpdateManager.h; sourceTree = "<group>"; };
-		FEBC53BD207DDCAB00B56806 /* RNUpdateManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNUpdateManager.m; sourceTree = "<group>"; };
 		FEBC53C2207DF47500B56806 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
 		FEBC53C3207DF47500B56806 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
 		FEBC53C4207DF47500B56806 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
@@ -579,10 +579,9 @@
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				FEC9CA402074C6F30091D4A3 /* RNViewController.h */,
 				FEC9CA412074C6F40091D4A3 /* RNViewController.m */,
-				FEBC53BC207DDCAB00B56806 /* RNUpdateManager.h */,
-				FEBC53BD207DDCAB00B56806 /* RNUpdateManager.m */,
 				FEBC5445207E13B600B56806 /* test.geojson */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
+				FE215FC8208D7C7B00B75115 /* RNUpdateManager */,
 				FE74D24F207F02520053333A /* Common */,
 				FE74D24A207F02520053333A /* Utils */,
 				FEBC53C0207DF47500B56806 /* Vendor */,
@@ -702,6 +701,15 @@
 				2D16E6721FA4F8DC00B85C8A /* libRCTBlob-tvOS.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		FE215FC8208D7C7B00B75115 /* RNUpdateManager */ = {
+			isa = PBXGroup;
+			children = (
+				FE215FC9208D7C7B00B75115 /* RNUpdateManager.h */,
+				FE215FCA208D7C7B00B75115 /* RNUpdateManager.m */,
+			);
+			path = RNUpdateManager;
 			sourceTree = "<group>";
 		};
 		FE74D24A207F02520053333A /* Utils */ = {
@@ -1346,8 +1354,8 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				FEBC53FD207DF47500B56806 /* AFNetworkReachabilityManager.m in Sources */,
 				FE74D2A4207F41690053333A /* FileHash.m in Sources */,
-				FEBC53BE207DDCAB00B56806 /* RNUpdateManager.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				FE215FCB208D7C7B00B75115 /* RNUpdateManager.m in Sources */,
 				FEBC53FB207DF47500B56806 /* AFURLSessionManager.m in Sources */,
 				FEBC540C207DF47500B56806 /* prng.c in Sources */,
 				FEBC540A207DF47500B56806 /* sha1.c in Sources */,
