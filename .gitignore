@@ -1,8 +1,8 @@
 # node.js
 #
-./RNUpdaterDemo/node_modules/
+RNUpdaterDemo/node_modules/
 
 
 # Bundle artifact
-./RNUpdaterDemo/*.jsbundle
-./RNUpdaterDemo/bundle/
+RNUpdaterDemo/*.jsbundle
+RNUpdaterDemo/bundle/
